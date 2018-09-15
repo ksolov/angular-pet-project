@@ -1,0 +1,36 @@
+<div class="container">
+  <h2>Results search for: {{term$}}</h2>
+  <div class="container" *ngIf="(questions$ | async)?.length > 0">
+    <div class="row border-top">
+      <div class="col col-3">Author</div>
+      <div class="col col-4">Theme</div>
+      <div class="col col-2">Amount</div>
+      <div class="col col-3">Tags</div>
+    </div>
+    <div class="row border-top" *ngFor="let question of questions$ | async">
+      <div class="col col-3">
+        <span (click)="open({ authorId: question.owner.user_id })">{{question.owner.display_name}}</span>
+      </div>
+      <div class="col col-4">
+        <a routerLink="/question/{{question.question_id}}">
+          {{question.title}}
+        </a>
+      </div>
+      <div class="col col-2">
+        <a routerLink="/question/{{question.question_id}}">
+          {{question.answer_count}}
+        </a>
+      </div>
+      <div class="col col-3">
+        <ul>
+          <li *ngFor="let tag of question.tags" (click)="open({ tag: tag })">
+            {{tag}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(questions$ | async)?.length == 0">No records found.</div>
+
+</div>

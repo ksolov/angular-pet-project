@@ -1,0 +1,193 @@
+{
+    "mode": "production",
+    "entry": "C:\\DiskD\\projects_\\directual-web\\src\\server.js",
+    "output": {
+        "path": "C:\\DiskD\\projects_\\directual-web\\build\\",
+        "publicPath": "/",
+        "filename": "server.js",
+        "libraryTarget": "commonjs2"
+    },
+    "resolve": {
+        "extensions": [
+            ".js",
+            ".jsx",
+            ".json",
+            ".js",
+            ".jsx",
+            ".json"
+        ],
+        "modules": [
+            "C:\\DiskD\\projects_\\directual-web\\src",
+            "C:\\DiskD\\projects_\\directual-web\\node_modules",
+            "C:\\DiskD\\projects_\\directual-web\\src",
+            "C:\\DiskD\\projects_\\directual-web\\node_modules"
+        ]
+    },
+    "module": {
+        "rules": [
+            {
+                "test": {},
+                "use": {
+                    "loader": "babel-loader",
+                    "options": {
+                        "cacheDirectory": true
+                    }
+                },
+                "include": [
+                    "C:\\DiskD\\projects_\\directual-web\\src"
+                ]
+            },
+            {
+                "test": {},
+                "use": {
+                    "loader": "file-loader",
+                    "options": {
+                        "name": "assets/[name].[ext]"
+                    }
+                },
+                "include": [
+                    "C:\\DiskD\\projects_\\directual-web\\src"
+                ]
+            },
+            {
+                "test": {},
+                "use": {
+                    "loader": "svg-sprite-loader",
+                    "options": {
+                        "name": "assets/[name].[ext]"
+                    }
+                },
+                "include": [
+                    "C:\\DiskD\\projects_\\directual-web\\src"
+                ]
+            },
+            {
+                "test": {},
+                "use": {
+                    "loader": "file-loader",
+                    "options": {
+                        "mimetype": "application/vnd.ms-fontobject",
+                        "name": "assets/[name].[ext]"
+                    }
+                }
+            },
+            {
+                "test": {},
+                "use": {
+                    "loader": "file-loader",
+                    "options": {
+                        "mimetype": "application/font-woff",
+                        "name": "assets/[name].[ext]"
+                    }
+                }
+            },
+            {
+                "test": {},
+                "use": {
+                    "loader": "file-loader",
+                    "options": {
+                        "mimetype": "application/octet-stream",
+                        "name": "assets/[name].[ext]"
+                    }
+                }
+            },
+            {
+                "test": {},
+                "loader": "html-loader?minimize=false"
+            },
+            {
+                "test": {},
+                "use": {
+                    "loader": "babel-loader",
+                    "options": {
+                        "presets": [
+                            "react",
+                            "es2015",
+                            "stage-0"
+                        ],
+                        "plugins": [
+                            "transform-decorators-legacy"
+                        ]
+                    }
+                },
+                "exclude": {}
+            },
+            {
+                "test": {},
+                "use": [
+                    {
+                        "loader": "fake-style-loader"
+                    },
+                    {
+                        "loader": "css-loader",
+                        "options": {
+                            "importLoaders": 1
+                        }
+                    },
+                    {
+                        "loader": "postcss-loader",
+                        "options": {
+                            "ident": "postcss",
+                            "plugins": [
+                                null,
+                                null,
+                                null
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    "plugins": [
+        {
+            "definitions": {
+                "process.env.NODE_ENV": "\"production\"",
+                "process.env.BROWSER": "true"
+            }
+        },
+        {
+            "definitions": {
+                "process.env.NODE_ENV": "\"production\"",
+                "process.env.BROWSER": "false"
+            }
+        },
+        {
+            "options": {
+                "filename": "assets/[name].css",
+                "chunkFilename": "assets/[name].css"
+            }
+        }
+    ],
+    "target": "node",
+    "node": {
+        "__filename": true,
+        "__dirname": true
+    },
+    "externals": [
+        null
+    ],
+    "optimization": {
+        "minimizer": [
+            {
+                "options": {
+                    "assetNameRegExp": {},
+                    "cssProcessorOptions": {},
+                    "canPrint": true
+                },
+                "lastCallInstance": {
+                    "options": {
+                        "assetProcessors": [
+                            {
+                                "phase": "compilation.optimize-chunk-assets",
+                                "regExp": {}
+                            }
+                        ],
+                        "canPrint": true
+                    },
+                    "deleteAssetsMap": {}
+                }
+            }
+        ]
+    }
+}

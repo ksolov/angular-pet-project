@@ -1,0 +1,5 @@
+<div class="container" *ngIf="(answers$ | async)?.lengths">
+  <div class="row border-top" *ngFor="let answer of answers$ | async">
+    <p>{{answer.body}}}</p>
+  </div>
+</div>

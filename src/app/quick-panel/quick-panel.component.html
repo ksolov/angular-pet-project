@@ -1,0 +1,40 @@
+<div class="modal-header">
+  <h4 class="modal-title">Questions by {{authorName}}</h4>
+  <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <div class="container" *ngIf="(authorQuestions$ | async)?.length > 0">
+    <div class="row border-top">
+      <div class="col col-6">Theme</div>
+      <div class="col col-2">Amount</div>
+      <div class="col col-4">Tags</div>
+    </div>
+    <div class="row border-top" *ngFor="let question of authorQuestions$ | async">
+      <div class="col col-6">
+        <a routerLink="/question/{{question.question_id}}">
+          {{question.title}}
+        </a>
+      </div>
+      <div class="col col-2">
+        <a routerLink="/question/{{question.question_id}}">
+          {{question.answer_count}}
+        </a>
+      </div>
+      <div class="col col-4">
+        <ul>
+          <li *ngFor="let tag of question.tags">
+            {{tag}}
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="(authorQuestions$ | async)?.length == 0">No records found.</div>
+  <div *ngIf="isLoading">Loading...</div>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close('Close click')">Close</button>
+</div>
