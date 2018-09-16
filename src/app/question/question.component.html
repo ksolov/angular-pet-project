@@ -1,5 +1,7 @@
-<div class="container" *ngIf="(answers$ | async)?.lengths">
+<div class="container" *ngIf="(answers$ | async)?.length > 0">
+  <h2>{{qTitle}}</h2>
   <div class="row border-top" *ngFor="let answer of answers$ | async">
-    <p>{{answer.body}}}</p>
+    <p [innerHtml]="answer.body"></p>
   </div>
 </div>
+<div *ngIf="(answers$ | async)?.length == 0">No records found.</div>

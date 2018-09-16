@@ -1,0 +1,21 @@
+<div *ngIf="!authService.isLoggedIn">
+    <h1 style="margin: 0">Sign Up</h1>
+    {{message}}
+    <form>
+        <label for="email">Email:</label><br />
+        <input type="email" name="email" [(ngModel)]="input.email" /><br />
+        <label for="name">Name:</label><br />
+        <input type="text" name="name" [(ngModel)]="input.name" /><br />
+        <label for="password">Password:</label><br />
+        <input type="password" name="password" [(ngModel)]="input.password" /><br />
+        <label for="passwordConfirm">Confirm Password:</label><br />
+        <input type="password" name="passwordConfirm" [(ngModel)]="input.passwordConfirm" /><br />
+        <button type="button" (click)="registration()">Registration</button>
+    </form>
+    <p>
+        <a routerLink="/login">Login</a>
+    </p>
+</div>
+<div *ngIf="authService.isLoggedIn">
+  You are already logged in!
+</div>

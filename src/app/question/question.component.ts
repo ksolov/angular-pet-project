@@ -11,6 +11,7 @@ import {Observable} from "rxjs/internal/Observable";
 })
 export class QuestionComponent implements OnInit {
   questionId: number;
+  qTitle: string;
   answers$: Observable<Answer[]>;
 
   constructor(
@@ -24,12 +25,12 @@ export class QuestionComponent implements OnInit {
       (params) => {
         this.questionId = params['id'];
         this.loaderService.display(true);
-        // this.answers$ = this.questionService.getAnswersByQuestionId(params['id']);
-        // this.answers$.subscribe({
-        //   complete: () => {
-        //     this.loaderService.display(false);
-        //   }
-        // });
+        this.answers$ = this.questionService.getAnswersByQuestionId(params['id']);
+        this.answers$.subscribe(
+        data => {
+            this.qTitle = data.length ? data[0].title : '';
+            this.loaderService.display(false);
+          })
       }
     );
   };

@@ -10,12 +10,37 @@ import { SearchResultsComponent } from './search-results/search-results.componen
 import { QuestionComponent } from './question/question.component';
 import { QuickPanelComponent } from './quick-panel/quick-panel.component';
 import { LoaderService } from './service/loader.service';
+import { AuthGuard }            from './service/auth-guard.service';
+import { AuthService }          from './service/auth.service';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-    imports:      [ NgbModule, BrowserModule, FormsModule, AppRoutingModule, HttpClientModule ],
-    declarations: [ AppComponent, SearchComponent, SearchResultsComponent, QuestionComponent, QuickPanelComponent ],
-    providers: [ LoaderService, NgbActiveModal ],
-    bootstrap:    [ AppComponent ],
-    entryComponents: [ QuickPanelComponent ]
+  imports:      [
+    NgbModule,
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  declarations: [
+    AppComponent,
+    SearchComponent,
+    SearchResultsComponent,
+    QuestionComponent,
+    QuickPanelComponent,
+    LoginComponent,
+    HeaderComponent,
+    RegistrationComponent
+  ],
+  providers: [
+    LoaderService,
+    NgbActiveModal,
+    AuthGuard,
+    AuthService
+  ],
+  bootstrap: [ AppComponent ],
+  entryComponents: [ QuickPanelComponent ]
 })
 export class AppModule {}
