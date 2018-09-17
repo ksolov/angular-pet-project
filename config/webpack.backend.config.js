@@ -7,7 +7,7 @@ const BUILD_PATH = './build/';
 var webpackConfig = {
     devtool: 'inline-source-map',
     target: 'node',
-    entry: [helpers.root('src', 'server', 'server.js')],
+    entry: [helpers.root('server', 'server.js')],
     node: {
         __filename: true,
         __dirname: true

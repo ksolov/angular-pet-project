@@ -41,5 +41,5 @@
 
 ## npm comands
 
-- npm start - start project in development mode
-- npm run build - build project
+- npm start - start project in development mode localhost:8080
+- npm run build - build project. Server runs on localhost:3000
