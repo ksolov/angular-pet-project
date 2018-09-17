@@ -1,5 +1,7 @@
 import { NgModule }      from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouteReuseStrategy } from '@angular/router';
+import { CustomReuseStrategy } from './custom-reuse.strategy';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule }    from '@angular/common/http';
@@ -38,7 +40,8 @@ import { HeaderComponent } from './header/header.component';
     LoaderService,
     NgbActiveModal,
     AuthGuard,
-    AuthService
+    AuthService,
+    {provide: RouteReuseStrategy, useClass: CustomReuseStrategy}
   ],
   bootstrap: [ AppComponent ],
   entryComponents: [ QuickPanelComponent ]
